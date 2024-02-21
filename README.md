@@ -11,7 +11,7 @@ Repository for code and documentation for the Malian Data Science and Bioinforma
 
 Here we describe steps to perform a simple small nucleotide variation calling pipeline for Whole Exome sequencing reads.
 
-The pipline performs read quality control using *fastp*, alignemt using *bwa mem* algorithm, duplicate marking using *Picard* implemented in the *GATK* suite. Allignment statistics are collected using *samtools stats* and *picard*. Coverage information over the target capture region is determined *mosdepth*. Variant calling is performed using *deepvariant* WES model.
+The pipline performs read quality control using *fastp* [@chen2018], alignemt using *bwa mem* algorithm [@li2013] , duplicate marking using *Picard* implemented in the *GATK* suite [@mckenna2010]. Allignment statistics are collected using *samtools stats* and *picard*. Coverage information over the target capture region is determined *mosdepth* [@pedersen2017]. Variant calling is performed using *deepvariant* WES model [@poplin2018]. Quality control statistics are collected using *multiqc* [@ewels2016].
 
 ![Pipeline](Diagram.png)
 
@@ -179,6 +179,8 @@ time docker run --rm \
 ```
 
 ## Variant filtration
+
+We retained variant with the filter PASS given by deepvariant.
 
 ``` bash
 # Extract passed variants
