@@ -1,0 +1,8 @@
+Module	Section	Sample Name	Source
+mosdepth	summary	NIST7035_TAAGGCGA_L001.dm	/home/sounkou/Projects/FastqToDiagnostics/results/NIST7035_TAAGGCGA_L001.dm.mosdepth.summary.txt
+mosdepth	genome_results	NIST7035_TAAGGCGA_L001.dm	/home/sounkou/Projects/FastqToDiagnostics/results/NIST7035_TAAGGCGA_L001.dm.mosdepth.region.dist.txt
+Bcftools	stats	NIST7035_TAAGGCGA_L001.deepvariant.pass	/home/sounkou/Projects/FastqToDiagnostics/results/NIST7035_TAAGGCGA_L001.deepvariant.pass.bcftools.stats.txt
+Picard	AlignmentSummaryMetrics	NIST7035_TAAGGCGA_L001.dm	/home/sounkou/Projects/FastqToDiagnostics/results/NIST7035_TAAGGCGA_L001.picard.allignment.metrics.txt
+Picard	DuplicationMetrics	NIST7035_TAAGGCGA_L001	/home/sounkou/Projects/FastqToDiagnostics/results/NIST7035_TAAGGCGA_L001.picard.duplicate.metrics.txt
+Samtools	stats	NIST7035_TAAGGCGA_L001	/home/sounkou/Projects/FastqToDiagnostics/results/NIST7035_TAAGGCGA_L001.samtools.flagstats.txt
+fastp	all_sections	NIST7035_TAAGGCGA_L001_R1_001	/home/sounkou/Projects/FastqToDiagnostics/results/NIST7035_TAAGGCGA_L001_fastp.json

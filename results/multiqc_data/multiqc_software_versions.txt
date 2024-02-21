@@ -1,0 +1,3 @@
+Sample	Bcftools	Samtools
+Bcftools	1.19	
+Samtools		1.19
