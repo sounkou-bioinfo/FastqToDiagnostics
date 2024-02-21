@@ -152,4 +152,19 @@ results/${SampleName}.deepvariant.vcf.gz
 bcftools index -tf results/${SampleName}.deepvariant.pass.vcf.gz
 bcftools stats results/${SampleName}.deepvariant.pass.vcf.gz \
  > results/${SampleName}.deepvariant.pass.bcftools.stats.txt
+ # multiqc 
+cd results/ ; multiqc -f . ; cd ..
+
   ```
+## Variant annotation and prioritization 
+
+Several tools exist for this
+
+The classics
+- VEP
+- SNPEff 
+- Annovar : https://wannovar.wglab.org/done/429351/9u0NoDYBRcjQxGu4/index.html
+
+More integrated tools
+- OpenCravat
+- Varsome (commercial)
