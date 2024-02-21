@@ -531,6 +531,7 @@ Sounkou Mahamane Toure <a href="https://orcid.org/0009-0001-5914-6798" class="qu
 <li><p>Quality trimming</p></li>
 <li><p>Quality filtering</p></li>
 </ul>
+<p>GC content is a very important parameters here.</p>
 </section>
 <section id="dnaseq-workflow-4" class="slide level2">
 <h2>DNASeq workflow</h2>
@@ -547,43 +548,99 @@ Sounkou Mahamane Toure <a href="https://orcid.org/0009-0001-5914-6798" class="qu
 <section id="dnaseq-workflow-6" class="slide level2">
 <h2>DNASeq workflow</h2>
 <h3 id="mapping">Mapping</h3>
-<p>Several tools exist for the mapping to a reference genome. A note on the mapping process</p>
+<p>Several tools exist for the mapping to a reference genome. Note on the mapping process:</p>
 <ul>
 <li>choice of the reference is important <a href="https://lh3.github.io/2017/11/13/which-human-reference-genome-to-use">(Which Genome to choose ? , Heng Li)</a></li>
-<li>The allignment software and algorithm
+<li>The alignment software and algorithm
 <ul>
-<li>additional processing required or not ?</li>
+<li>additional processing required or not ?(duplication marking, base quality recalibration)</li>
 <li>processing speed</li>
 <li>Processing requirement in compute</li>
-<li>Variant calling/RNA quantification algorithm used downstreem</li>
+<li>Variant calling/RNA quantification algorithm used downstream</li>
 </ul></li>
 </ul>
 </section>
 <section id="dnaseq-workflow-7" class="slide level2">
 <h2>DNASeq workflow</h2>
 <h3 id="mapping-1">Mapping</h3>
-<p>The ouput of this step is a SAM/BAM file https://github.com/samtools/hts-specs.</p>
-</section>
+<p>The ouput of this step is a SAM/BAM file whose specification can be found https://github.com/samtools/hts-specs.</p>
+
+<img data-src="images/paste-19.png" class="r-stretch quarto-figure-center"><p class="caption">source : https://www.samformat.info/sam-format-flag</p></section>
 <section id="dnaseq-workflow-8" class="slide level2">
 <h2>DNASeq workflow</h2>
-<h3 id="variant-calling">Variant calling</h3>
+<h3 id="mapping-quality-check">Mapping quality check</h3>
+<p>Here you can detect potential issues with the sequencing reads. One should check :</p>
+<ul>
+<li>mapping percentage to the reference genome</li>
+<li>quality of the mapping</li>
+<li>insert size if paired sequencing</li>
+<li>duplication rates</li>
+<li>coverage on the targeted regions for target captures</li>
+</ul>
+<p>view mutliqc file for illustration</p>
 </section>
 <section id="dnaseq-workflow-9" class="slide level2">
 <h2>DNASeq workflow</h2>
-<h3 id="variant-calling-1">Variant calling</h3>
-</section>
+<h3 id="variant-calling">Variant calling</h3>
+
+<img data-src="images/paste-20.png" class="r-stretch"></section>
 <section id="dnaseq-workflow-10" class="slide level2">
 <h2>DNASeq workflow</h2>
-<h3 id="variant-annotation">Variant annotation</h3>
+<h3 id="variant-calling-1">Variant calling</h3>
+<p>There are several possibilities to call variants from BAM files. Here is an illustration of GATK best practices for exome variant calling <span class="citation" data-cites="alganmi2023">(<a href="#/references" role="doc-biblioref" onclick="">Alganmi and Abusamra 2023</a>)</span></p>
+
+<img data-src="images/paste-21.png" class="r-stretch quarto-figure-center"><p class="caption">source : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10399881/</p></section>
+<section id="dnaseq-workflow-11" class="slide level2">
+<h2>DNASeq workflow</h2>
+<h3 id="variant-calling-2">Variant calling</h3>
+<p>Alternative small nucleotide variation (SNV) workflow</p>
+
+<img data-src="images/Diagram.png" class="r-stretch"></section>
+<section id="dnaseq-workflow-12" class="slide level2">
+<h2>DNASeq workflow</h2>
+<h3 id="variant-calling-importance-of-benchmarking">Variant calling : Importance of benchmarking</h3>
+<ul>
+<li><p>Test your workflow against established datasets</p></li>
+<li><p>Compare it to alternatives for precision and sensitivity</p></li>
+<li><p>Accurary for single nucleotide variants</p></li>
+<li><p>Accurancy Insertion/deletion</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Screenshot%20from%202024-02-21%2010-22-19-2.png" width="472" height="303"></p>
+<figcaption>source : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10399881/</figcaption>
+</figure>
+</div></li>
+</ul>
+</section>
+<section id="dnaseq-workflow-13" class="slide level2">
+<h2>DNASeq workflow</h2>
+<h3 id="variant-effect-prediction">Variant effect prediction</h3>
+<p>Several established methods as well as machine learning models</p>
+<p><span class="citation" data-cites="cheng2023">(<a href="#/references" role="doc-biblioref" onclick="">Cheng et al. 2023</a>)</span></p>
 
 <img data-src="images/paste-16.png" class="r-stretch"></section>
+<section id="dnaseq-workflow-14" class="slide level2">
+<h2>DNASeq workflow</h2>
+<h3 id="variant-effect-prediction-1">Variant effect prediction</h3>
+
+<img data-src="images/paste-22.png" class="r-stretch"></section>
 <section id="dnaseq-in-medical-genomics" class="slide level2">
 <h2>DNASeq in medical genomics</h2>
 <h3 id="challenges">Challenges</h3>
+<ul>
+<li><p>Misdiagnosis</p></li>
+<li><p>Phenotypic complexity</p></li>
+<li><p>Lack of knowledge of molecular action of predicted deleterious variants</p></li>
+</ul>
 </section>
 <section id="dnaseq-in-medical-genomics-1" class="slide level2">
 <h2>DNASeq in medical genomics</h2>
 <h3 id="opportunities">Opportunities</h3>
+<p>NGS does increase the diagnostic yield for poorly characterized diseases</p>
+<p><span class="citation" data-cites="yska2019">(<a href="#/references" role="doc-biblioref" onclick="">Yska et al. 2019</a>)</span></p>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -593,8 +650,14 @@ Sounkou Mahamane Toure <a href="https://orcid.org/0009-0001-5914-6798" class="qu
 </div>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-alganmi2023" class="csl-entry" role="listitem">
+Alganmi, Nofe, and Heba Abusamra. 2023. <span>“Evaluation of an Optimized Germline Exomes Pipeline Using BWA-MEM2 and Dragen-GATK Tools.”</span> Edited by Alvaro Galli. <em>PLOS ONE</em> 18 (8): e0288371. <a href="https://doi.org/10.1371/journal.pone.0288371">https://doi.org/10.1371/journal.pone.0288371</a>.
+</div>
 <div id="ref-chen2018" class="csl-entry" role="listitem">
 Chen, Shifu, Yanqing Zhou, Yaru Chen, and Jia Gu. 2018. <span>“Fastp: An Ultra-Fast All-in-One FASTQ Preprocessor.”</span> <em>Bioinformatics</em> 34 (17): i884–90. <a href="https://doi.org/10.1093/bioinformatics/bty560">https://doi.org/10.1093/bioinformatics/bty560</a>.
+</div>
+<div id="ref-cheng2023" class="csl-entry" role="listitem">
+Cheng, Jun, Guido Novati, Joshua Pan, Clare Bycroft, Akvilė Žemgulytė, Taylor Applebaum, Alexander Pritzel, et al. 2023. <span>“Accurate Proteome-Wide Missense Variant Effect Prediction with AlphaMissense.”</span> <em>Science</em> 381 (6664). <a href="https://doi.org/10.1126/science.adg7492">https://doi.org/10.1126/science.adg7492</a>.
 </div>
 <div id="ref-garcia2020" class="csl-entry" role="listitem">
 Garcia, Maxime, Szilveszter Juhos, Malin Larsson, Pall I. Olason, Marcel Martin, Jesper Eisfeldt, Sebastian DiLorenzo, et al. 2020. <span>“Sarek: A Portable Workflow for Whole-Genome Sequencing Analysis of Germline and Somatic Variants.”</span> <em>F1000Research</em> 9 (September): 63. <a href="https://doi.org/10.12688/f1000research.16665.2">https://doi.org/10.12688/f1000research.16665.2</a>.
@@ -613,6 +676,9 @@ Quintáns, B., A. Ordóñez-Ugalde, P. Cacheiro, A. Carracedo, and M. J. Sobrido
 </div>
 <div id="ref-stephens2015" class="csl-entry" role="listitem">
 Stephens, Zachary D., Skylar Y. Lee, Faraz Faghri, Roy H. Campbell, Chengxiang Zhai, Miles J. Efron, Ravishankar Iyer, Michael C. Schatz, Saurabh Sinha, and Gene E. Robinson. 2015. <span>“Big Data: Astronomical or Genomical?”</span> <em>PLOS Biology</em> 13 (7): e1002195. <a href="https://doi.org/10.1371/journal.pbio.1002195">https://doi.org/10.1371/journal.pbio.1002195</a>.
+</div>
+<div id="ref-yska2019" class="csl-entry" role="listitem">
+Yska, Hemmo A. F., Kim Elsink, Taco W. Kuijpers, Geert W. J. Frederix, Mariëlle E. van Gijn, and Joris M. van Montfrans. 2019. <span>“Diagnostic Yield of Next Generation Sequencing in Genetically Undiagnosed Patients with Primary Immunodeficiencies: A Systematic Review.”</span> <em>Journal of Clinical Immunology</em> 39 (6): 577–91. <a href="https://doi.org/10.1007/s10875-019-00656-x">https://doi.org/10.1007/s10875-019-00656-x</a>.
 </div>
 </div>
 </section>

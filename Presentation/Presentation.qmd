@@ -185,7 +185,7 @@ After this, decision can be made to do additional quality filtering such as :
 -   Quality trimming
 
 -   Quality filtering
-  
+
 GC content is a very important parameters here.
 
 ## DNASeq workflow
@@ -211,8 +211,8 @@ You can either assemble the puzzle from the reads alone (denovo-assembly), use a
 Several tools exist for the mapping to a reference genome. Note on the mapping process:
 
 -   choice of the reference is important [(Which Genome to choose ? , Heng Li)](https://lh3.github.io/2017/11/13/which-human-reference-genome-to-use)
--   The allignment software and algorithm
-    -   additional processing required or not ?
+-   The alignment software and algorithm
+    -   additional processing required or not ?(duplication marking, base quality recalibration)
     -   processing speed
     -   Processing requirement in compute
     -   Variant calling/RNA quantification algorithm used downstream
@@ -228,39 +228,87 @@ The ouput of this step is a SAM/BAM file whose specification can be found https:
 ## DNASeq workflow
 
 ### Mapping quality check
-Here you can detect potential issues with the sequencing reads. One should check 
+
+Here you can detect potential issues with the sequencing reads. One should check :
+
 -   mapping percentage to the reference genome
 -   quality of the mapping
 -   insert size if paired sequencing
 -   duplication rates
 -   coverage on the targeted regions for target captures
 
-## DNASeq workflow
-
-### Mapping quality check
-
-view multiqc file 
+view mutliqc file for illustration
 
 ## DNASeq workflow
 
 ### Variant calling
 
+![](images/paste-20.png)
+
 ## DNASeq workflow
 
 ### Variant calling
 
+There are several possibilities to call variants from BAM files. Here is an illustration of GATK best practices for exome variant calling [@alganmi2023]
+
+![source : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10399881/](images/paste-21.png)
+
 ## DNASeq workflow
 
-### Variant annotation
+### Variant calling
+
+Alternative small nucleotide variation (SNV) workflow
+
+![](images/Diagram.png)
+
+## DNASeq workflow
+
+### Variant calling : Importance of benchmarking
+
+-   Test your workflow against established datasets
+
+-   Compare it to alternatives for precision and sensitivity
+
+-   Accurary for single nucleotide variants
+
+-   Accurancy Insertion/deletion
+
+    ![source : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10399881/](images/Screenshot from 2024-02-21 10-22-19-2.png){width="472" height="303"}
+
+## DNASeq workflow
+
+### Variant effect prediction
+
+Several established methods as well as machine learning models
+
+[@cheng2023]
 
 ![](images/paste-16.png)
+
+## DNASeq workflow
+
+### Variant effect prediction
+
+![](images/paste-22.png)
 
 ## DNASeq in medical genomics
 
 ### Challenges
 
+-   Misdiagnosis
+
+-   Phenotypic complexity
+
+-   Lack of knowledge of molecular action of predicted deleterious variants
+
 ## DNASeq in medical genomics
 
 ### Opportunities
+
+NGS does increase the diagnostic yield for poorly characterized diseases
+
+[@yska2019]
+
+## Summary
 
 ## References
