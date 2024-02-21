@@ -1,0 +1,266 @@
+---
+title: From sequencing reads to diagnostics
+subtitle: NGS in medical genetics
+format: clean-revealjs
+author:
+  - name: Sounkou Mahamane Toure
+    orcid: 0009-0001-5914-6798
+    email: sounkoutoure@gmail.com
+    affiliations: Malian Data Science and Bioinformatics Network (MD-BioNet)
+date: last-modified
+bibliography: references.bib
+---
+
+## Introduction {#sec-introdna}
+
+### What is DNA/RNA
+
+Deoxyribonucleic acid, commonly referred to as DNA, is a sophisticated molecule housing all the essential information required for the construction and sustenance of of all living organisms.
+
+![Source : https://www.geeksforgeeks.org/difference-between-dna-and-rna/](images/paste-2.png)
+
+## Introduction {#sec-introseq}
+
+### What is DNA/RNA Sequencing
+
+-   The determination of the order of nucleotides within a DNA molecule is called DNA sequencing (DNASeq)
+
+-   RNA sequencing or RNASeq is the same process for mRNA molecules
+
+-   Any process or technology that is used to achieve this goal
+
+## Introduction {#sec-intro-ngs}
+
+### History of DNA Sequencing
+
+![source: Aimin Yang, Wei Zhang, Jiahao Wang, Ke Yang, Yang Han and Limin Zhang - doi:10.3389/fbioe.2020.01032](images/paste-3.png){fig-align="center"}
+
+## Introduction
+
+### Features of NGS
+
+-   Next-generation sequencing (NGS), alternatively labeled as high-throughput sequencing, refers to a variety of contemporary sequencing technologies.
+-   What distinguish them from previous techniques:
+    -   Fast
+    -   Cheaper, More volume
+-   They revolutionize
+    -   Study of biological systems and their history
+    -   Relationship between organisms
+    -   Link between heredity and health and disease [@koboldt2013]
+
+## Introduction
+
+### Sequencing Generations
+
+![Source : Ronholm, Jennifer & Nasheri, Neda & Petronella, Nicholas & Pagotto, Franco. (2016). Navigating Microbiological Food Safety in the Era of Whole-Genome Sequencing. Clinical Microbiology Reviews. 29. 10.1128/CMR.00056-16.](images/paste-6.png){fig-align="center"}
+
+## Introduction
+
+### Sequencing Generations
+
+![source: https://twitter.com/PacBio/status/1233091102800011266/photo/1](images/paste-5.png)
+
+## Introduction
+
+### Cost of sequencing
+
+![source: https://www.genome.gov/sequencingcosts/](images/paste-7.png)
+
+## Introduction
+
+### Scale of data
+
+Increasing amount of data generated [@stephens2015]
+
+![source : https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002195](images/paste-8.png)
+
+## Introduction
+
+### Challenges and opportunities
+
+-   Data storage and processing
+
+-   **Intepretaton**
+
+-   Integration between omics and other sources of information [@lópezdematurana2019]
+
+    ![source: https://www.mdpi.com/2073-4425/10/3/238#](images/paste-10.png){width="439"}
+
+## Introduction
+
+### Clinical application
+
+-   DNASeq
+    -   Germline
+    -   Somatic
+    -   Human or microbial
+-   RNASeq
+    -   Germline
+    -   Somatic
+
+In these applications the approach may be targeted or not genome/transcriptom wide.
+
+## General NGS workflow
+
+![source : 2019 ACE-B NGS Intro Course , Dr. Ghedira Kais](images/Screenshot%20from%202024-02-21%2008-10-23.png)
+
+## General NGS workflow
+
+### Library Preparation
+
+This will depend on the type of application [@head2014] . But in general
+
+-   DNA/cDNA extraction and purification
+
+-   Enrichment : targeted or not
+
+-   adapters ligation and amplification
+
+    ![source : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4351865/figure/F1/](images/paste-12.png){fig-align="center" width="546" height="346"}
+
+## General NGS workflow
+
+### Sequencing
+
+![source: https://wp.unil.ch/gtf/illumina-short-read-sequencing/](images/paste-13.png)
+
+## General NGS workflow
+
+### Sequencing Output
+
+![source : https://biocorecrg.github.io/RNAseq_course_2019/fastq.html](images/paste-14.png)
+
+## General NGS workflow
+
+### Secondary analysis and tertiary analysis
+
+Example of the possibilities for secondary analysis depending on the application [@garcia2020]
+
+![source : https://github.com/nf-core/sarek](images/paste-15.png)
+
+## General NGS workflow
+
+### Secondary analysis and tertiary analysis
+
+![source : https://uofabioinformaticshub.github.io/Intro-NGS-Sept-2017/notes/variant_calling.html](images/paste-18.png)
+
+## General NGS workflow
+
+### Clinical interpretations
+
+Interpretation of genomic variation is complex [@quintáns2014]
+
+![](images/paste-17.png)
+
+## DNASeq workflow
+
+### Quality Control of reads
+
+The goal here is to access the overall quality of the base calls made
+
+by the sequencer and detect possible anomalies. There are several tools to perform this, here we used fastp [@chen2018]
+
+![](images/Screenshot%20from%202024-02-21%2009-14-20.png)
+
+## DNASeq workflow
+
+### Quality Control of reads
+
+![](images/Screenshot%20from%202024-02-21%2009-15-08.png)
+
+## DNASeq workflow
+
+### Quality Control of reads
+
+![](images/Screenshot%20from%202024-02-21%2009-15-43.png)
+
+## DNASeq workflow
+
+### Quality Control of reads
+
+After this, decision can be made to do additional quality filtering such as :
+
+-   Further adapter trimming
+
+-   Quality trimming
+
+-   Quality filtering
+  
+GC content is a very important parameters here.
+
+## DNASeq workflow
+
+### Mapping or denovo-assembly
+
+we get individual reads but they usually come from similar regions of the targeted DNA/RNA molecules when we are doing short reads sequencing
+
+![](images/Screenshot%20from%202024-02-21%2009-22-07.png)
+
+## DNASeq workflow
+
+### Mapping or denovo-assembly
+
+You can either assemble the puzzle from the reads alone (denovo-assembly), use a reference or mix these strategies
+
+![](images/Screenshot%20from%202024-02-21%2009-24-16.png)
+
+## DNASeq workflow
+
+### Mapping
+
+Several tools exist for the mapping to a reference genome. Note on the mapping process:
+
+-   choice of the reference is important [(Which Genome to choose ? , Heng Li)](https://lh3.github.io/2017/11/13/which-human-reference-genome-to-use)
+-   The allignment software and algorithm
+    -   additional processing required or not ?
+    -   processing speed
+    -   Processing requirement in compute
+    -   Variant calling/RNA quantification algorithm used downstream
+
+## DNASeq workflow
+
+### Mapping
+
+The ouput of this step is a SAM/BAM file whose specification can be found https://github.com/samtools/hts-specs.
+
+![source : https://www.samformat.info/sam-format-flag](images/paste-19.png)
+
+## DNASeq workflow
+
+### Mapping quality check
+Here you can detect potential issues with the sequencing reads. One should check 
+-   mapping percentage to the reference genome
+-   quality of the mapping
+-   insert size if paired sequencing
+-   duplication rates
+-   coverage on the targeted regions for target captures
+
+## DNASeq workflow
+
+### Mapping quality check
+
+view multiqc file 
+
+## DNASeq workflow
+
+### Variant calling
+
+## DNASeq workflow
+
+### Variant calling
+
+## DNASeq workflow
+
+### Variant annotation
+
+![](images/paste-16.png)
+
+## DNASeq in medical genomics
+
+### Challenges
+
+## DNASeq in medical genomics
+
+### Opportunities
+
+## References
