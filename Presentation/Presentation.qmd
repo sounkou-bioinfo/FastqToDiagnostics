@@ -249,7 +249,7 @@ view mutliqc file for illustration
 
 ### Variant calling
 
-There are several possibilities to call variants from BAM files. Here is an illustration of GATK best practices for exome variant calling [@alganmi2023]
+There are several possibilities to call variants from BAM files. Here is an illustration of GATK best practices for exome variant calling [@alganmi2023] 
 
 ![source : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10399881/](images/paste-21.png)
 
@@ -257,7 +257,8 @@ There are several possibilities to call variants from BAM files. Here is an illu
 
 ### Variant calling
 
-Alternative small nucleotide variation (SNV) workflow
+Alternative small nucleotide variation (SNV) workflow for this tutorial. GATK based workflow are usable
+on  plateforms like https://app.terra.bio/ or https://seqera.io/.
 
 ![](images/Diagram.png)
 
@@ -291,6 +292,23 @@ Several established methods as well as machine learning models
 
 ![](images/paste-22.png)
 
+## DNASeq workflow
+
+### Variant effect prediction Tools
+
+Considerations here are :
+
+-   Accuracy
+
+-   Usability
+
+-   Cost
+
+-   Access : open source, commercial
+
+For example services like VEP, OpenCravat, Wannovar are free for academic use.
+Commercial services like Varsome have restrictions. 
+
 ## DNASeq in medical genomics
 
 ### Challenges
@@ -307,8 +325,27 @@ Several established methods as well as machine learning models
 
 NGS does increase the diagnostic yield for poorly characterized diseases
 
-[@yska2019]
+[@yska2019] . An Machine learning models can make contributions [@obrien2022]
+
+![](images/paste-24.png)
 
 ## Summary
+### Considerations for bioinformaticians 
+
+- Select methods and techniques given
+  - use case 
+  - Available resources
+  - sustainability 
+
+## Summary 
+### Considerations for bioinformaticians
+
+- Test the methods 
+- Look for ameliorations
+- Stay informed
+
+
+## Thank You !
+
 
 ## References
