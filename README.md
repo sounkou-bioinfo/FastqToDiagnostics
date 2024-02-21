@@ -1,5 +1,6 @@
 ---
 bibliography: references.bib
+nocite: "@*"
 ---
 
 # FastqToDiagnostics
@@ -32,7 +33,7 @@ micromamba create -n FastqToDiagnostics \
 -c bioconda -c conda-forge awscli bwa samtools mosdepth fastp gatk4 bcftools multiqc
 ```
 
-## Download refernce genome and indexes
+## Download reference genome and indexes
 
 ``` bash
 micromamba activate FastqToDiagnostics
@@ -153,14 +154,14 @@ cd results/ ; multiqc -f . ; cd ..
 
 This requires docker to be installed on the system.
 
-For illustration purposes we do the calling on a smaller set of the exome
+For illustration purposes we do the calling on a smaller set of target regions than the whole exome
 
 ``` bash
 # pseudo autosomal regions if do calling on the sex
 # chromosome
 wget -c -P $PWD/intervals https://storage.googleapis.com/deepvariant/case-study-testdata/GRCh37_PAR.bed
 Interval=./intervals/nexterarapidcapture_expandedexome_targetedregions.bed
-# run deep variant
+# run deepvariant
 BIN_VERSION="1.6.0"
 time docker run --rm \
   -v $PWD/results:/input \
