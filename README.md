@@ -161,7 +161,7 @@ cd results/ ; multiqc -f . ; cd ..
 Several tools exist for this
 
 The classics
-- VEP
+- VEP : https://grch37.ensembl.org/Multi/Tools/VEP/Ticket?tl=W9TV20C3YLQmIiFE
 - SNPEff 
 - Annovar : https://wannovar.wglab.org/done/429351/9u0NoDYBRcjQxGu4/index.html
 
