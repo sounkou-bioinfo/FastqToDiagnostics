@@ -1,6 +1,7 @@
 ---
 
-bibliography: references.bib
+bibliography:
+    - references.bib
 
 ---
 
