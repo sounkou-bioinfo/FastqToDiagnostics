@@ -1,6 +1,6 @@
 ---
-bibliography: references.bib
-nocite: "@*"
+--bibliography:
+    - references.bib
 ---
 
 # FastqToDiagnostics
